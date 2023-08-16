@@ -1,27 +1,34 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    @api.depends("company_credit_limit", "insurance_credit_limit")
-    def _compute_credit_limit(self):
-        for partner in self:
-            partner.credit_limit = (
-                partner.company_credit_limit + partner.insurance_credit_limit
-            )
+    def _inverse_oca_credit_limit(self):
+        """The credit_limit field already exists in account, we use an inverse to define
+        the value without altering the standard operation."""
+        for item in self:
+            if "use_partner_credit_limit" not in self._fields or (
+                "use_partner_credit_limit" in self._fields
+                and not item.use_partner_credit_limit
+            ):
+                item.credit_limit = (
+                    item.company_credit_limit + item.insurance_credit_limit
+                )
 
-    credit_limit = fields.Float(store=True, compute="_compute_credit_limit")
+    credit_limit = fields.Float(store=True)
     company_credit_limit = fields.Float(
         "Company's Credit Limit",
         help="Credit limit granted by the company.",
         tracking=True,
+        inverse="_inverse_oca_credit_limit",
     )
     insurance_credit_limit = fields.Float(
         "Insurance's Credit Limit",
         help="Credit limit granted by the insurance company.",
         tracking=True,
+        inverse="_inverse_oca_credit_limit",
     )
     risk_insurance_coverage_percent = fields.Float(
         "Insurance's Credit Coverage",
