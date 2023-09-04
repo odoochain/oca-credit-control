@@ -127,7 +127,7 @@ class ResPartner(models.Model):
     )
     credit_policy = fields.Char()
     risk_allow_edit = fields.Boolean(compute="_compute_risk_allow_edit")
-    credit_limit = fields.Float(tracking=True)
+    credit_limit = fields.Float()
     credit_currency = fields.Selection(
         selection=[
             ("company", "Company Currency"),
@@ -136,7 +136,7 @@ class ResPartner(models.Model):
             ("manual", "Manual Credit Currency"),
         ],
         default="company",
-        tracking=True,
+        # tracking=True,
     )
     manual_credit_currency_id = fields.Many2one(
         comodel_name="res.currency",

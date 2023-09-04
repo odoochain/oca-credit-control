@@ -10,6 +10,7 @@ class ResPartnerPaymentActionType(models.Model):
     _name = "res.partner.payment.action.type"
     _description = "Partner Payment Action Types"
     _order = "sequence, id"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char()
     sequence = fields.Integer(default=10)

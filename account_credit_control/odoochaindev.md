@@ -11,7 +11,7 @@ Credit Control > Credit Control Policies``.)中配置策略和策略级别。
 
 ## 用法 =====
 
-菜单条目位于发票 > 顾问 > 信用控制中。
+菜单条目位于发票 > 顾问 > 信用控制(*Invoicing > Adviser > Credit Control*.)中。
 
 在 Credit Control Run 菜单中使用控制日期创建一个新的“运行”。然后，使用计算信用额度按钮。
 
