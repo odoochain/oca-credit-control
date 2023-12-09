@@ -8,16 +8,17 @@ class ResPartner(models.Model):
     def _inverse_oca_credit_limit(self):
         """The credit_limit field already exists in account, we use an inverse to define
         the value without altering the standard operation."""
+        global_credit_limit = self.env["ir.property"]._get(
+            "credit_limit", "res.partner"
+        )
         for item in self:
-            if "use_partner_credit_limit" not in self._fields or (
-                "use_partner_credit_limit" in self._fields
-                and not item.use_partner_credit_limit
-            ):
-                item.credit_limit = (
-                    item.company_credit_limit + item.insurance_credit_limit
-                )
+            item.credit_limit = (
+                global_credit_limit
+                + item.company_credit_limit
+                + item.insurance_credit_limit
+            )
 
-    credit_limit = fields.Float(store=True)
+    credit_limit = fields.Float(tracking=True)
     company_credit_limit = fields.Float(
         "Company's Credit Limit",
         help="Credit limit granted by the company.",
