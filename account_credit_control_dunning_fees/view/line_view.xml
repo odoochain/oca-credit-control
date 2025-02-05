@@ -10,7 +10,7 @@
         <field
                     name="dunning_fees_amount"
                     widget="monetary"
-                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                    readonly="state != 'draft'"
                 />
       </field>
     </field>
@@ -25,7 +25,7 @@
         <field
                     name="dunning_fees_amount"
                     widget="monetary"
-                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                    readonly="state != 'draft'"
                 />
       </field>
     </field>
