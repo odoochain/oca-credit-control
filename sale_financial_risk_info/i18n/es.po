@@ -54,7 +54,3 @@ msgstr "Pedido de venta"
 #, python-format
 msgid "Unlimited"
 msgstr "Sin límite"
-
-#, python-format
-#~ msgid "<h5%s>%s%s of %s%s (%s%%)</h5>"
-#~ msgstr "<h5%s>%s%s de %s%s (%s%%)</h5>"

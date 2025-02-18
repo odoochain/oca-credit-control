@@ -1,16 +1,15 @@
 # Copyright 2020 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests.common import Form
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSaleFinancialRiskInfo(TransactionCase):
+class TestSaleFinancialRiskInfo(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.Partner = cls.env["res.partner"]
         cls.Product = cls.env["product.product"]
 

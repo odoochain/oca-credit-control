@@ -53,12 +53,3 @@ msgstr "Ordine di vendita"
 #, python-format
 msgid "Unlimited"
 msgstr "Illimitato"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome da visualizzare"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
