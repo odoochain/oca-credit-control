@@ -43,7 +43,8 @@ msgstr "Generator för kreditkontrollrad"
 #: model:ir.model.fields,help:account_credit_control_dunning_fees.field_credit_control_policy_level__dunning_currency_id
 msgid ""
 "Currency of the dunning fees. If empty, it takes the company's currency."
-msgstr "Valuta för påminnelseavgifter. Om den är tom används företagets valuta."
+msgstr ""
+"Valuta för påminnelseavgifter. Om den är tom används företagets valuta."
 
 #. module: account_credit_control_dunning_fees
 #: model:ir.model.fields,field_description:account_credit_control_dunning_fees.field_credit_control_line__dunning_fees_amount
